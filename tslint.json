@@ -6,6 +6,8 @@
       "member-access": false,
       "no-relative-imports": false,
       "trailing-comma": "always",
-      "typedef": false
+      "typedef": false,
+      "no-backbone-get-set-outside-model": false,
+      "interface-name": false
     }
 }

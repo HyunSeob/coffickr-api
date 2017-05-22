@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
+import { PlaceEvaluation } from './PlaceEvaluation';
+import { PlaceComment } from './PlaceComment';
 
 @Entity()
 export class User {
@@ -20,4 +22,10 @@ export class User {
 
   @UpdateDateColumn({ nullable: true })
   updatedAt: Date;
+
+  @OneToMany(type => PlaceEvaluation, evaluation => evaluation.user)
+  evaluations: PlaceEvaluation[];
+
+  @OneToMany(type => PlaceComment, comment => comment.user)
+  comments: PlaceComment[];
 }

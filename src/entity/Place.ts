@@ -1,4 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany, JoinTable } from 'typeorm';
+import { PlaceEvaluation } from './PlaceEvaluation';
+import { PlaceComment } from './PlaceComment';
 
 @Entity()
 export class Place {
@@ -53,4 +55,10 @@ export class Place {
 
   @UpdateDateColumn({ nullable: true })
   updatedAt: Date;
+
+  @OneToMany(type => PlaceEvaluation, evaluation => evaluation.place)
+  evaluations: PlaceEvaluation[];
+
+  @OneToMany(type => PlaceComment, comment => comment.place)
+  comments: PlaceComment[];
 }
