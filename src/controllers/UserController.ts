@@ -4,6 +4,7 @@ import { Response, Request } from 'express';
 import { User } from '../entity/User';
 import { AuthService } from '../services/AuthService';
 import { AuthRequest, authUser } from '../middlewares/authUser';
+import * as env from '../env';
 
 const JWT_SECRET = 'cx@H6[_>Q4os$/)xBAXw?Ecc';
 
@@ -26,7 +27,7 @@ export class UserController {
       maxAge: 86400 * 1000,
       secure: false,
       path: '/',
-      domain: 'local.coffic.kr'
+      domain: env.domain
     });
 
     res.header('Access-Control-Allow-Credentials', 'true');
@@ -42,7 +43,7 @@ export class UserController {
       maxAge: 86400 * 1000,
       secure: false,
       path: '/',
-      domain: 'local.coffic.kr'
+      domain: env.domain
     });
 
     res.header('Access-Control-Allow-Credentials', 'true');
