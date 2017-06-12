@@ -11,9 +11,6 @@ export class Place {
   @Column()
   name: string;
 
-  @Column({ nullable: true })
-  image: string;
-
   @Column()
   lat: number;
 
@@ -25,6 +22,12 @@ export class Place {
 
   @Column('text')
   address: string;
+
+  @Column()
+  googleId: string;
+
+  @Column({ nullable: true })
+  photoRef: string;
 
   @Column({ nullable: true })
   phone: string;

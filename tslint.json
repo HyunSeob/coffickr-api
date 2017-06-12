@@ -8,6 +8,7 @@
       "trailing-comma": "always",
       "typedef": false,
       "no-backbone-get-set-outside-model": false,
-      "interface-name": false
+      "interface-name": false,
+      "no-stateless-class": false
     }
 }
